@@ -57,7 +57,7 @@ def listVideos(url):
     spl = content.split("<div class='main'>")
     for i in range(1, len(spl), 1):
         entry = spl[i]
-        match = re.compile('youtube.com/embed/(.+?)\?', re.DOTALL).findall(entry)
+        match = re.compile('youtube.com/embed/(.+?)[?"]', re.DOTALL).findall(entry)
         id = match[0]
         match = re.compile("name='up'>(.+?)<", re.DOTALL).findall(entry)
         up = float(match[0])
